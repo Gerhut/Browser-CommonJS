@@ -4,7 +4,7 @@
   "authors": [
     "George Chung <Gerhut@GMail.com>"
   ],
-  "description": "Use CommonJS Module in Browser",
+  "description": "Use CommonJS module in browser.",
   "main": "browser-common.js",
   "keywords": [
     "CommonJS",
@@ -22,5 +22,5 @@
     "mocha": "~2.1.0",
     "should": "~4.6.3"
   },
-  "dependencies": {}
+  "homepage": "https://github.com/Gerhut/Browser-CommonJS"
 }

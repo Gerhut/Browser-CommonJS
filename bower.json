@@ -1,0 +1,26 @@
+{
+  "name": "browser-common.js",
+  "version": "0.0.0",
+  "authors": [
+    "George Chung <Gerhut@GMail.com>"
+  ],
+  "description": "Use CommonJS Module in Browser",
+  "main": "browser-common.js",
+  "keywords": [
+    "CommonJS",
+    "Module"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "mocha": "~2.1.0",
+    "should": "~4.6.3"
+  },
+  "dependencies": {}
+}

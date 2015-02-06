@@ -238,6 +238,9 @@ void function (global) {
   }
 
   var useCommonJSModule = function (main, callback) {
+    if (typeof callback != 'function')
+      callback = function () {}
+
     var module = new Module(resolve(main))
     module.load(function (err) {
       if (err) {
@@ -251,10 +254,38 @@ void function (global) {
     })
   }
 
+  useCommonJSModule.inline = function (content, callback) {
+    if (typeof callback != 'function')
+      callback = function () {}
+
+    var inlineId = './__inline__'
+    var module = new Module(resolve(inlineId))
+    delete Module.modules[Module.key(inlineId)] // inline module cannot be required
+    module.content = content
+    module.analyse().loadRequires(function () {
+      this.run()
+      callback(this.commonJSModule.exports)
+    })
+  }
+
   useCommonJSModule.clearCache = function () {
     Module.modules = {}
   }
 
   global.useCommonJSModule = useCommonJSModule
 
+  contentLoaded(this, function () {
+    var type = 'application/x-commonjs-module'
+    var scripts = global.document.getElementsByTagName('script')
+    for (var i = 0, l = scripts.length; i < l; i++) {
+      var script = scripts[i]
+      if (script.type.toLowerCase() != type) continue
+      var main = script.getAttribute('main')
+      if (main) {
+        useCommonJSModule(main)
+      } else {
+        useCommonJSModule.inline(script.text)
+      }
+    }
+  })
 } (this)

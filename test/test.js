@@ -1,5 +1,5 @@
 describe('Browser-CommonJS', function () {
-  afterEach(function () {
+  beforeEach(function () {
     useCommonJSModule.clearCache()
   })
   it('should load a module', function (done) {
@@ -19,5 +19,11 @@ describe('Browser-CommonJS', function () {
       exports.should.be.equal(7)
       done()
     })
+  })
+  it('should deal with inline module', function () {
+    globalFunc().should.be.equal(4)
+  })
+  it('should deal with inline module with src', function () {
+    globalFunc2().should.be.equal(4)
   })
 })

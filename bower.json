@@ -22,5 +22,8 @@
     "mocha": "~2.1.0",
     "should": "~4.6.3"
   },
-  "homepage": "https://github.com/Gerhut/Browser-CommonJS"
+  "homepage": "https://github.com/Gerhut/Browser-CommonJS",
+  "dependencies": {
+    "contentloaded": "*"
+  }
 }

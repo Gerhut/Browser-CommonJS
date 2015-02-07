@@ -1,3 +1,9 @@
+/*!
+ * browser-commonjs v0.0.2
+ * http://github.com/Gerhut/browser-commonjs/
+ * Copyright 2015, George Chung.
+ * Released under the MIT license.
+ */
 void function (global) {
   /**
    * Request a file content
